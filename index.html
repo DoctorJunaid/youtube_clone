@@ -289,12 +289,17 @@
             checkMobileScreen();
 
             // Run on window resize
+            // Event listener for window resize
             window.addEventListener('resize', checkMobileScreen);
 
+            // Event listener for toggle button
             toggleButton.addEventListener('click', function() {
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
             });
+
+            // Run before page load
+            checkMobileScreen();
         });
     </script>
 </body>

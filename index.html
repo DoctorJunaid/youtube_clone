@@ -268,6 +268,10 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Add collapsed class to sidebar and expanded to main-content immediately
+        document.querySelector('.sidebar').classList.add('collapsed');
+        document.querySelector('.main-content').classList.add('expanded');
+
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.querySelector('#toggleButton1').parentElement;
             const sidebar = document.querySelector('.sidebar');
@@ -275,10 +279,7 @@
 
             // Check if screen width is mobile size (less than 768px)
             function checkMobileScreen() {
-                if (window.innerWidth < 768) {
-                    sidebar.classList.add('collapsed');
-                    mainContent.classList.add('expanded');
-                } else {
+                if (window.innerWidth >= 768) {
                     sidebar.classList.remove('collapsed');
                     mainContent.classList.remove('expanded');
                 }

@@ -269,36 +269,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Add collapsed class to sidebar and expanded to main-content
-            document.querySelector('.sidebar').classList.add('collapsed');
-            document.querySelector('.main-content').classList.add('expanded');
             const toggleButton = document.querySelector('#toggleButton1').parentElement;
             const sidebar = document.querySelector('.sidebar');
             const mainContent = document.querySelector('.main-content');
 
-            // Check if screen width is mobile size (less than 768px)
-            function checkMobileScreen() {
-                if (window.innerWidth >= 768) {
+            // Function to handle sidebar state based on screen size
+            function handleSidebarState() {
+                if (window.innerWidth < 768) {
+                    // For mobile: Start collapsed
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                } else {
+                    // For desktop: Start expanded
                     sidebar.classList.remove('collapsed');
                     mainContent.classList.remove('expanded');
                 }
             }
 
-            // Run on page load
-            checkMobileScreen();
+            // Set initial state before DOM content is fully loaded
+            handleSidebarState();
 
-            // Run on window resize
-            // Event listener for window resize
-            window.addEventListener('resize', checkMobileScreen);
+            // Handle window resize
+            window.addEventListener('resize', handleSidebarState);
 
-            // Event listener for toggle button
+            // Toggle button functionality
             toggleButton.addEventListener('click', function() {
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
             });
-
-            // Run before page load
-            checkMobileScreen();
         });
     </script>
 </body>

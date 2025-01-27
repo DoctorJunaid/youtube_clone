@@ -266,7 +266,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -274,12 +273,28 @@
             const sidebar = document.querySelector('.sidebar');
             const mainContent = document.querySelector('.main-content');
 
+            // Check if screen width is mobile size (less than 768px)
+            function checkMobileScreen() {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                } else {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('expanded');
+                }
+            }
+
+            // Run on page load
+            checkMobileScreen();
+
+            // Run on window resize
+            window.addEventListener('resize', checkMobileScreen);
+
             toggleButton.addEventListener('click', function() {
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
             });
         });
-        
     </script>
 </body>
 </html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-white fixed-top border-bottom">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="btn" type="button" id="toggleButton1">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a class="navbar-brand ms-3" href="#">
+                    <img src="assets/pngwing.com.png" alt="YouTube Logo">
+                </a>
+            </div>
+
+            <div class="search-bar mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <button class="btn" type="button" id="hideonmobile">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button class="btn" type="button" id="hideonmobile">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="btn" type="button">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="sidebar border-end">
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="index.html">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a class="nav-link" href="https://www.youtube.com/feed/trending">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </a>
+            <a class="nav-link" href="https://www.youtube.com/shorts">
+                <i class="fas fa-play-circle"></i>
+                <span>Shorts</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-tv"></i>
+                <span>Subscriptions</span>
+            </a>
+            <hr>
+            <a class="nav-link" href="#">
+                <i class="fas fa-photo-video"></i>
+                <span>Library</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-clock"></i>
+                <span>Watch Later</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-thumbs-up"></i>
+                <span>Liked Videos</span>
+            </a>
+            <hr>
+
+            <a class="nav-link" href="#">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-flag"></i>
+                <span>Report History</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-question-circle"></i>
+                <span>Help</span>
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-comment-alt"></i>
+                <span>Send Feedback</span>
+            </a>
+
+            <hr>
+
+            <div class="nav-footer small px-3">
+                <div class="mb-2">
+                    <a href="#" class="text-muted text-decoration-none me-2">About</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Press</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Copyright</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Contact us</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Creators</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Advertise</a>
+                    <a href="#" class="text-muted text-decoration-none">Developers</a>
+                </div>
+                <div class="mb-2">
+                    <a href="#" class="text-muted text-decoration-none me-2">Terms</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Privacy</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">Policy & Safety</a>
+                    <a href="#" class="text-muted text-decoration-none me-2">How YouTube works</a>
+                    <a href="#" class="text-muted text-decoration-none">Test new features</a>
+                </div>
+                <div class="text-muted">
+                    © 2025 Junaid LLC
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="main d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">   
+        <i class="fas fa-clock fs-1 mb-4"></i> 
+        <h3>Keep track of what you watch</h3>
+        <p>Watch history isn't viewable when you're signed out. <span class="text-decoration-none text-primary">Learn more</span></p>
+        <button class="btn btn-outline-primary rounded-pill"><a class="text-decoration-none" href="https://accounts.google.com"><i class="fas fa-user-circle"></i> Sign in</a></button>
+    </div>
+
+  
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('#toggleButton1').parentElement;
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+
+            // Set initial state for mobile
+            if (window.innerWidth < 768) {
+                mainContent.classList.add('expanded');
+            }
+
+            // Toggle button functionality
+            toggleButton.addEventListener('click', function () {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.toggle('show');
+                } else {
+                    sidebar.classList.toggle('collapsed');
+                    mainContent.classList.toggle('expanded');
+                }
+            });
+
+            // Handle resize events
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    if (!sidebar.classList.contains('collapsed')) {
+                        mainContent.classList.remove('expanded');
+                    }
+                } else {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.add('expanded');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

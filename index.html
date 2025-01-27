@@ -269,29 +269,38 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const toggleButton = document.querySelector('#toggleButton1').parentElement;
-                const sidebar = document.querySelector('.sidebar');
-                const mainContent = document.querySelector('.main-content');
-                
-                // Remove the initial handleSidebarState call
-                
-                // Toggle button functionality
-                toggleButton.addEventListener('click', function() {
+            const toggleButton = document.querySelector('#toggleButton1').parentElement;
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            
+            // Set initial state for mobile
+            if (window.innerWidth < 768) {
+                mainContent.classList.add('expanded');
+            }
+            
+            // Toggle button functionality
+            toggleButton.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.toggle('show');
+                } else {
                     sidebar.classList.toggle('collapsed');
                     mainContent.classList.toggle('expanded');
-                });
-                
-                // Only handle resize for desktop view
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth >= 768) {
-                        sidebar.classList.remove('collapsed');
-                        mainContent.classList.remove('expanded');
-                    } else {
-                        sidebar.classList.add('collapsed');
-                        mainContent.classList.add('expanded');
-                    }
-                });
+                }
             });
+            
+            // Handle resize events
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('show');
+                    if (!sidebar.classList.contains('collapsed')) {
+                        mainContent.classList.remove('expanded');
+                    }
+                } else {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.add('expanded');
+                }
+            });
+        });
         </script>
     </body>
     </html>

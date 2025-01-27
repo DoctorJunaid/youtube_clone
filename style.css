@@ -70,20 +70,19 @@
 
 @media (max-width: 768px) {
     .sidebar {
-        width: 70px;
+        width: 70x;
+        z-index: 1000;
     }
 
     .main-content {
         margin-left: 70px;
     }
 
-    .sidebar .nav-link span {
-        display: none;
-    }
 
     .search-bar {
         width: 60%;
     }
+    
 }
 
 .nav-link {

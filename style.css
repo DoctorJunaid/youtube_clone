@@ -84,6 +84,28 @@
     }
     
 }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+.sidebar {
+    height: calc(100vh - 56px);
+    background-color: #fff;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding-top: 1rem;
+}
 
 .nav-link {
     color: #030303;

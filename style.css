@@ -290,3 +290,75 @@ body {
     color: var(--text-color);
 
 }
+/* mobile search*/
+@media(max-width:576px) {
+    #hideonmobile1,
+    #hideonmobile2,
+    #hideonmobile3,
+    .search-bar {
+        display: none !important;
+    }
+/* Basic styling for the search container */
+.yt-search-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    position: relative;
+    margin-left: auto; /* Adjust based on your layout */
+}
+
+.yt-search-input {
+    width: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    font-size: 16px;
+    color: var(--text-color);
+    height: 40px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.yt-search-container.active .yt-search-input {
+    width: 100%;
+    padding: 0 40px 0 15px;
+    opacity: 1;
+    visibility: visible;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+}
+
+.yt-search-icon {
+    position: absolute;
+    right: 0;
+    background: var(--secondary-bg);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.yt-search-icon:hover {
+    background: var(--secondary-bg);
+}
+
+.yt-search-icon i {
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+/* When search is active, adjust icon background */
+.yt-search-container.active .yt-search-icon {
+    background: var(--bg-color);
+    border-radius: 0 40px 40px 0;
+    right: 1px;
+}
+}

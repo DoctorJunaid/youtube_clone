@@ -283,3 +283,6 @@ body {
     background-color: var(--hover-color);
     color: var(--text-color);
 }
+#icon-button3:hover , #icon-button2:hover, #icon-button1:hover{
+    color: var(--bg-color);
+}

@@ -290,8 +290,10 @@ body {
     color: var(--text-color);
 
 }
-.yt-search-container{
-    display: none;
+@media (min-width: 577px) {
+    .yt-search-container {
+        display: none;
+    }
 }
 
 /* mobile search*/

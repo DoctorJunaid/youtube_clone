@@ -290,6 +290,10 @@ body {
     color: var(--text-color);
 
 }
+.yt-search-container{
+    display: none;
+}
+
 /* mobile search*/
 @media(max-width:576px) {
     #hideonmobile1,

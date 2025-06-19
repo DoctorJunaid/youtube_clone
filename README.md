@@ -2,7 +2,7 @@
 
 A fully functional **YouTube Clone** built using **React**, **Material UI**, **RapidAPI**, and **Axios**. This project replicates the core functionality and layout of YouTube, allowing users to search for videos, watch content, and explore channels—all in a modern, responsive UI.
 
-![App Screenshot](./assets/screenshot.jpeg)
+![App Screenshot](./assets/screenshot1.jpeg)
 
 ---
 
